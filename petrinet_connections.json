@@ -1,0 +1,29 @@
+{
+  "condition_connections": [
+    {
+      "condition": "ready",
+      "actions": [
+        "start",
+        "cancel"
+      ]
+    },
+    {
+      "condition": "finished",
+      "actions": []
+    }
+  ],
+  "action_connections": [
+    {
+      "action": "start",
+      "conditions": [
+        "finished"
+      ]
+    },
+    {
+      "action": "cancel",
+      "conditions": [
+        "finished"
+      ]
+    }
+  ]
+}
