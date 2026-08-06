@@ -55,7 +55,7 @@ def main() -> None:
     storage.add_action(PetriNetAction("cancel", 0))
 
     parser = PetriNetConnectionParser(storage)
-    parser.parse("petrinet_connections.json")
+    parser.parse("../test/petrinet_connections.json")
 
     ready = storage.get_condition("ready")
     selected_action = ready.choose_action()
