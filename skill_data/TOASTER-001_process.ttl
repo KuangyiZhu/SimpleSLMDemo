@@ -1,0 +1,217 @@
+@prefix mfg: <http://example.org/manufacturing/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <http://example.org/manufacturing/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:TOASTER-001 a mfg:Product ;
+    rdfs:label "TOASTER" ;
+    mfg:hasProcess res:TOASTER-001-Process ;
+    mfg:lotSize 10 ;
+    mfg:productCode "TOASTER-001" .
+
+res:CABLE-001 a mfg:Material ;
+    rdfs:label "CABLE-001" .
+
+res:CARTON-001 a mfg:Material ;
+    rdfs:label "CARTON-001" .
+
+res:HEATING-WIRE-001 a mfg:Material ;
+    rdfs:label "HEATING-WIRE-001" .
+
+res:PLASTIC-001 a mfg:Material ;
+    rdfs:label "PLASTIC-001" .
+
+res:SCREW-001 a mfg:Material ;
+    rdfs:label "SCREW-001" .
+
+res:SPRING-001 a mfg:Material ;
+    rdfs:label "SPRING-001" .
+
+res:STEEL-001 a mfg:Material ;
+    rdfs:label "STEEL-001" .
+
+res:THERMO-001 a mfg:Material ;
+    rdfs:label "THERMO-001" .
+
+res:TOASTER-001-Process a mfg:Process ;
+    rdfs:label "TOASTER Manufacturing Process" ;
+    mfg:hasStep res:TOASTER-001-Step10,
+        res:TOASTER-001-Step20,
+        res:TOASTER-001-Step30,
+        res:TOASTER-001-Step40,
+        res:TOASTER-001-Step50,
+        res:TOASTER-001-Step60 .
+
+res:TOASTER-001-Step10 a mfg:ProcessStep ;
+    rdfs:label "Step 10 Stamping" ;
+    mfg:hasMaterials res:TOASTER-001-Step10-Materials ;
+    mfg:hasTime res:TOASTER-001-Step10-Time ;
+    mfg:next res:TOASTER-001-Step20 ;
+    mfg:stepName "Stamping" ;
+    mfg:stepNumber 10 .
+
+res:TOASTER-001-Step10-Materials a mfg:Materials ;
+    mfg:hasMaterialUsage res:TOASTER-001-Step10-STEEL-001-Usage .
+
+res:TOASTER-001-Step10-Processing a mfg:Processing ;
+    mfg:durationUnit "sec/pc" ;
+    mfg:durationValue 40.0 .
+
+res:TOASTER-001-Step10-STEEL-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:STEEL-001 ;
+    mfg:quantityPerPiece 800.0 ;
+    mfg:quantityUnit "g/pc" .
+
+res:TOASTER-001-Step10-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 25.0 .
+
+res:TOASTER-001-Step10-Time a mfg:Time ;
+    mfg:hasProcessing res:TOASTER-001-Step10-Processing ;
+    mfg:hasSetup res:TOASTER-001-Step10-Setup .
+
+res:TOASTER-001-Step20-Materials a mfg:Materials ;
+    mfg:hasMaterialUsage res:TOASTER-001-Step20-PLASTIC-001-Usage .
+
+res:TOASTER-001-Step20-PLASTIC-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:PLASTIC-001 ;
+    mfg:quantityPerPiece 200.0 ;
+    mfg:quantityUnit "g/pc" .
+
+res:TOASTER-001-Step20-Processing a mfg:Processing ;
+    mfg:durationUnit "min/pc" ;
+    mfg:durationValue 0.5 .
+
+res:TOASTER-001-Step20-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 25.0 .
+
+res:TOASTER-001-Step20-Time a mfg:Time ;
+    mfg:hasProcessing res:TOASTER-001-Step20-Processing ;
+    mfg:hasSetup res:TOASTER-001-Step20-Setup .
+
+res:TOASTER-001-Step30-Processing a mfg:Processing ;
+    mfg:durationUnit "sec/pc" ;
+    mfg:durationValue 30.0 .
+
+res:TOASTER-001-Step30-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 15.0 .
+
+res:TOASTER-001-Step30-Time a mfg:Time ;
+    mfg:hasProcessing res:TOASTER-001-Step30-Processing ;
+    mfg:hasSetup res:TOASTER-001-Step30-Setup .
+
+res:TOASTER-001-Step40-CABLE-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:CABLE-001 ;
+    mfg:quantityPerPiece 1.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:TOASTER-001-Step40-HEATING-WIRE-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:HEATING-WIRE-001 ;
+    mfg:quantityPerPiece 2.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:TOASTER-001-Step40-Materials a mfg:Materials ;
+    mfg:hasMaterialUsage res:TOASTER-001-Step40-CABLE-001-Usage,
+        res:TOASTER-001-Step40-HEATING-WIRE-001-Usage,
+        res:TOASTER-001-Step40-SCREW-001-Usage,
+        res:TOASTER-001-Step40-SPRING-001-Usage,
+        res:TOASTER-001-Step40-THERMO-001-Usage .
+
+res:TOASTER-001-Step40-Processing a mfg:Processing ;
+    mfg:durationUnit "sec/pc" ;
+    mfg:durationValue 100.0 .
+
+res:TOASTER-001-Step40-SCREW-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:SCREW-001 ;
+    mfg:quantityPerPiece 6.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:TOASTER-001-Step40-SPRING-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:SPRING-001 ;
+    mfg:quantityPerPiece 2.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:TOASTER-001-Step40-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 15.0 .
+
+res:TOASTER-001-Step40-THERMO-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:THERMO-001 ;
+    mfg:quantityPerPiece 1.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:TOASTER-001-Step40-Time a mfg:Time ;
+    mfg:hasProcessing res:TOASTER-001-Step40-Processing ;
+    mfg:hasSetup res:TOASTER-001-Step40-Setup .
+
+res:TOASTER-001-Step50-Processing a mfg:Processing ;
+    mfg:durationUnit "sec/pc" ;
+    mfg:durationValue 50.0 .
+
+res:TOASTER-001-Step50-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 5.0 .
+
+res:TOASTER-001-Step50-Time a mfg:Time ;
+    mfg:hasProcessing res:TOASTER-001-Step50-Processing ;
+    mfg:hasSetup res:TOASTER-001-Step50-Setup .
+
+res:TOASTER-001-Step60-CARTON-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:CARTON-001 ;
+    mfg:quantityPerPiece 1.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:TOASTER-001-Step60-Materials a mfg:Materials ;
+    mfg:hasMaterialUsage res:TOASTER-001-Step60-CARTON-001-Usage .
+
+res:TOASTER-001-Step60-Processing a mfg:Processing ;
+    mfg:durationUnit "sec/pc" ;
+    mfg:durationValue 35.0 .
+
+res:TOASTER-001-Step60-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 5.0 .
+
+res:TOASTER-001-Step60-Time a mfg:Time ;
+    mfg:hasProcessing res:TOASTER-001-Step60-Processing ;
+    mfg:hasSetup res:TOASTER-001-Step60-Setup .
+
+res:TOASTER-001-Step20 a mfg:ProcessStep ;
+    rdfs:label "Step 20 Plastic Injection" ;
+    mfg:hasMaterials res:TOASTER-001-Step20-Materials ;
+    mfg:hasTime res:TOASTER-001-Step20-Time ;
+    mfg:next res:TOASTER-001-Step30 ;
+    mfg:stepName "Plastic Injection" ;
+    mfg:stepNumber 20 .
+
+res:TOASTER-001-Step30 a mfg:ProcessStep ;
+    rdfs:label "Step 30 Welding" ;
+    mfg:hasTime res:TOASTER-001-Step30-Time ;
+    mfg:next res:TOASTER-001-Step40 ;
+    mfg:stepName "Welding" ;
+    mfg:stepNumber 30 .
+
+res:TOASTER-001-Step40 a mfg:ProcessStep ;
+    rdfs:label "Step 40 Assembly" ;
+    mfg:hasMaterials res:TOASTER-001-Step40-Materials ;
+    mfg:hasTime res:TOASTER-001-Step40-Time ;
+    mfg:next res:TOASTER-001-Step50 ;
+    mfg:stepName "Assembly" ;
+    mfg:stepNumber 40 .
+
+res:TOASTER-001-Step50 a mfg:ProcessStep ;
+    rdfs:label "Step 50 Safety Test" ;
+    mfg:hasTime res:TOASTER-001-Step50-Time ;
+    mfg:next res:TOASTER-001-Step60 ;
+    mfg:stepName "Safety Test" ;
+    mfg:stepNumber 50 .
+
+res:TOASTER-001-Step60 a mfg:ProcessStep ;
+    rdfs:label "Step 60 Packaging" ;
+    mfg:hasMaterials res:TOASTER-001-Step60-Materials ;
+    mfg:hasTime res:TOASTER-001-Step60-Time ;
+    mfg:stepName "Packaging" ;
+    mfg:stepNumber 60 .
+

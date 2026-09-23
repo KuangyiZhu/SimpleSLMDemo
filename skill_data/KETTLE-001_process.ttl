@@ -1,0 +1,208 @@
+@prefix mfg: <http://example.org/manufacturing/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <http://example.org/manufacturing/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+res:KETTLE-001 a mfg:Product ;
+    rdfs:label "KETTLE" ;
+    mfg:hasProcess res:KETTLE-001-Process ;
+    mfg:lotSize 10 ;
+    mfg:productCode "KETTLE-001" .
+
+res:CABLE-001 a mfg:Material ;
+    rdfs:label "CABLE-001" .
+
+res:CARTON-001 a mfg:Material ;
+    rdfs:label "CARTON-001" .
+
+res:HEATER-K-001 a mfg:Material ;
+    rdfs:label "HEATER-K-001" .
+
+res:KETTLE-001-Process a mfg:Process ;
+    rdfs:label "KETTLE Manufacturing Process" ;
+    mfg:hasStep res:KETTLE-001-Step10,
+        res:KETTLE-001-Step20,
+        res:KETTLE-001-Step30,
+        res:KETTLE-001-Step40,
+        res:KETTLE-001-Step50,
+        res:KETTLE-001-Step60 .
+
+res:KETTLE-001-Step10 a mfg:ProcessStep ;
+    rdfs:label "Step 10 Stamping" ;
+    mfg:hasMaterials res:KETTLE-001-Step10-Materials ;
+    mfg:hasTime res:KETTLE-001-Step10-Time ;
+    mfg:next res:KETTLE-001-Step20 ;
+    mfg:stepName "Stamping" ;
+    mfg:stepNumber 10 .
+
+res:KETTLE-001-Step10-Materials a mfg:Materials ;
+    mfg:hasMaterialUsage res:KETTLE-001-Step10-STEEL-001-Usage .
+
+res:KETTLE-001-Step10-Processing a mfg:Processing ;
+    mfg:durationUnit "min/pc" ;
+    mfg:durationValue 0.5 .
+
+res:KETTLE-001-Step10-STEEL-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:STEEL-001 ;
+    mfg:quantityPerPiece 600.0 ;
+    mfg:quantityUnit "g/pc" .
+
+res:KETTLE-001-Step10-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 20.0 .
+
+res:KETTLE-001-Step10-Time a mfg:Time ;
+    mfg:hasProcessing res:KETTLE-001-Step10-Processing ;
+    mfg:hasSetup res:KETTLE-001-Step10-Setup .
+
+res:KETTLE-001-Step20-Materials a mfg:Materials ;
+    mfg:hasMaterialUsage res:KETTLE-001-Step20-PLASTIC-001-Usage .
+
+res:KETTLE-001-Step20-PLASTIC-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:PLASTIC-001 ;
+    mfg:quantityPerPiece 250.0 ;
+    mfg:quantityUnit "g/pc" .
+
+res:KETTLE-001-Step20-Processing a mfg:Processing ;
+    mfg:durationUnit "min/pc" ;
+    mfg:durationValue 0.75 .
+
+res:KETTLE-001-Step20-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 30.0 .
+
+res:KETTLE-001-Step20-Time a mfg:Time ;
+    mfg:hasProcessing res:KETTLE-001-Step20-Processing ;
+    mfg:hasSetup res:KETTLE-001-Step20-Setup .
+
+res:KETTLE-001-Step30-Processing a mfg:Processing ;
+    mfg:durationUnit "sec/pc" ;
+    mfg:durationValue 20.0 .
+
+res:KETTLE-001-Step30-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 10.0 .
+
+res:KETTLE-001-Step30-Time a mfg:Time ;
+    mfg:hasProcessing res:KETTLE-001-Step30-Processing ;
+    mfg:hasSetup res:KETTLE-001-Step30-Setup .
+
+res:KETTLE-001-Step40-CABLE-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:CABLE-001 ;
+    mfg:quantityPerPiece 1.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:KETTLE-001-Step40-HEATER-K-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:HEATER-K-001 ;
+    mfg:quantityPerPiece 1.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:KETTLE-001-Step40-Materials a mfg:Materials ;
+    mfg:hasMaterialUsage res:KETTLE-001-Step40-CABLE-001-Usage,
+        res:KETTLE-001-Step40-HEATER-K-001-Usage,
+        res:KETTLE-001-Step40-SCREW-001-Usage,
+        res:KETTLE-001-Step40-THERMO-001-Usage .
+
+res:KETTLE-001-Step40-Processing a mfg:Processing ;
+    mfg:durationUnit "min/pc" ;
+    mfg:durationValue 1.5 .
+
+res:KETTLE-001-Step40-SCREW-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:SCREW-001 ;
+    mfg:quantityPerPiece 4.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:KETTLE-001-Step40-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 15.0 .
+
+res:KETTLE-001-Step40-THERMO-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:THERMO-001 ;
+    mfg:quantityPerPiece 1.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:KETTLE-001-Step40-Time a mfg:Time ;
+    mfg:hasProcessing res:KETTLE-001-Step40-Processing ;
+    mfg:hasSetup res:KETTLE-001-Step40-Setup .
+
+res:KETTLE-001-Step50-Processing a mfg:Processing ;
+    mfg:durationUnit "min/pc" ;
+    mfg:durationValue 0.75 .
+
+res:KETTLE-001-Step50-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 5.0 .
+
+res:KETTLE-001-Step50-Time a mfg:Time ;
+    mfg:hasProcessing res:KETTLE-001-Step50-Processing ;
+    mfg:hasSetup res:KETTLE-001-Step50-Setup .
+
+res:KETTLE-001-Step60-CARTON-001-Usage a mfg:MaterialUsage ;
+    mfg:material res:CARTON-001 ;
+    mfg:quantityPerPiece 1.0 ;
+    mfg:quantityUnit "unit/pc" .
+
+res:KETTLE-001-Step60-Materials a mfg:Materials ;
+    mfg:hasMaterialUsage res:KETTLE-001-Step60-CARTON-001-Usage .
+
+res:KETTLE-001-Step60-Processing a mfg:Processing ;
+    mfg:durationUnit "min/pc" ;
+    mfg:durationValue 0.5 .
+
+res:KETTLE-001-Step60-Setup a mfg:Setup ;
+    mfg:durationUnit "min" ;
+    mfg:durationValue 5.0 .
+
+res:KETTLE-001-Step60-Time a mfg:Time ;
+    mfg:hasProcessing res:KETTLE-001-Step60-Processing ;
+    mfg:hasSetup res:KETTLE-001-Step60-Setup .
+
+res:PLASTIC-001 a mfg:Material ;
+    rdfs:label "PLASTIC-001" .
+
+res:SCREW-001 a mfg:Material ;
+    rdfs:label "SCREW-001" .
+
+res:STEEL-001 a mfg:Material ;
+    rdfs:label "STEEL-001" .
+
+res:THERMO-001 a mfg:Material ;
+    rdfs:label "THERMO-001" .
+
+res:KETTLE-001-Step20 a mfg:ProcessStep ;
+    rdfs:label "Step 20 Plastic Injection" ;
+    mfg:hasMaterials res:KETTLE-001-Step20-Materials ;
+    mfg:hasTime res:KETTLE-001-Step20-Time ;
+    mfg:next res:KETTLE-001-Step30 ;
+    mfg:stepName "Plastic Injection" ;
+    mfg:stepNumber 20 .
+
+res:KETTLE-001-Step30 a mfg:ProcessStep ;
+    rdfs:label "Step 30 Welding" ;
+    mfg:hasTime res:KETTLE-001-Step30-Time ;
+    mfg:next res:KETTLE-001-Step40 ;
+    mfg:stepName "Welding" ;
+    mfg:stepNumber 30 .
+
+res:KETTLE-001-Step40 a mfg:ProcessStep ;
+    rdfs:label "Step 40 Assembly" ;
+    mfg:hasMaterials res:KETTLE-001-Step40-Materials ;
+    mfg:hasTime res:KETTLE-001-Step40-Time ;
+    mfg:next res:KETTLE-001-Step50 ;
+    mfg:stepName "Assembly" ;
+    mfg:stepNumber 40 .
+
+res:KETTLE-001-Step50 a mfg:ProcessStep ;
+    rdfs:label "Step 50 Safety Test" ;
+    mfg:hasTime res:KETTLE-001-Step50-Time ;
+    mfg:next res:KETTLE-001-Step60 ;
+    mfg:stepName "Safety Test" ;
+    mfg:stepNumber 50 .
+
+res:KETTLE-001-Step60 a mfg:ProcessStep ;
+    rdfs:label "Step 60 Packaging" ;
+    mfg:hasMaterials res:KETTLE-001-Step60-Materials ;
+    mfg:hasTime res:KETTLE-001-Step60-Time ;
+    mfg:stepName "Packaging" ;
+    mfg:stepNumber 60 .
+
